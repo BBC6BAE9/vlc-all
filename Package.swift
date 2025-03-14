@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let vlcBinary = Target.binaryTarget(name: "VLCKit-all", url: "https://github.com/BBC6BAE9/vlc-all/releases/download/4.0.0a10/VLCKit.xcframework.zip", checksum: "451ccae5a4240d38bf827fc2123465b1c27e370d")
+let vlcBinary = Target.binaryTarget(name: "vlc-all", url: "https://github.com/BBC6BAE9/vlc-all/releases/download/4.0.0a10/VLCKit.xcframework.zip", checksum: "978cb8e2497d15f7b8788b3bf42a40e85c95b47daa7b82bc797ba8bf4039c932")
 
 let package = Package(
     name: "vlc-all",
@@ -16,9 +16,9 @@ let package = Package(
     targets: [
         vlcBinary,
         .target(
-            name: "vlc-all",
+            name: "VLCKit",
             dependencies: [
-                .target(name: "VLCKit-all")
+                .target(name: "VLCKit")
             ], linkerSettings: [
                 .linkedFramework("QuartzCore", .when(platforms: [.iOS])),
                 .linkedFramework("CoreText", .when(platforms: [.iOS, .tvOS])),
